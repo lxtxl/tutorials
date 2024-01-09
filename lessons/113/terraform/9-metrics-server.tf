@@ -16,11 +16,21 @@ resource "helm_release" "metrics-server" {
   repository = "https://kubernetes-sigs.github.io/metrics-server/"
   chart      = "metrics-server"
   namespace  = "kube-system"
-  version    = "3.8.2"
+  version    = "3.11.0"
 
   set {
     name  = "metrics.enabled"
     value = false
+  }
+
+  set {
+    name = "image.repository"
+    value = "739999085319.dkr.ecr.ap-northeast-2.amazonaws.com/metric-server"
+  }
+
+  set {
+    name = "image.tag"
+    value = "v0.6.4"
   }
 
   depends_on = [aws_eks_fargate_profile.kube-system]

@@ -1,5 +1,5 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-northeast-2"
 }
 
 variable "cluster_name" {
@@ -7,14 +7,14 @@ variable "cluster_name" {
 }
 
 variable "cluster_version" {
-  default = "1.22"
+  default = "1.28"
 }
 
 terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.0"
+      version = "~> 5.31.0"
     }
   }
 }
